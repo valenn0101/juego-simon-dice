@@ -4,4 +4,5 @@
  ## Instalacion
 
  Correr
- 'npm install'
+ 'npm init'
+ 'npm install bootstrap'
