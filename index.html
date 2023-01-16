@@ -7,47 +7,42 @@
     <link
       rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
     <title>Simon Dice Juego</title>
   </head>
   <body>
-    <nav class="navbar navbar-light border border-2 border-secondary" id="barra-navegacion">
-      <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1 text-center" id="titulo"><strong>Jueguemos Simon Dice!</strong></span>
+    <nav class="navbar navbar-light border border-2 border-secondary p-3 mb-2 bg-white text-dark" id="barra-navegacion">
+      <div class="container-fluid d-flex justify-content-center">
+        <span class="navbar-brand mb-0 h1 " id="titulo"><strong>Juguemos Simon Dice!</strong></span>
       </div>
     </nav>
     <div class="container">
       <div class="row">
         <div class="col-sm-7">
           <div class="alert alert-primary m-2" role="alert" id="estado">
-        
+            Bienvenido al juego! Toca iniciar para comenzar
           </div>
         </div>
         <div class="col-sm-2 m-2 pt-0 pb-0  alert alert-secondary text-center">
-          <p>Ronda Número <strong id="ronda">0</strong></p>
+          <p class="m-2">Ronda Número <strong id="ronda">0</strong></p>
         </div>
         <div class="col-sm-2 m-2">
-          <button type="button" class="btn btn-primary">Iniciar</button>
+          <button id="iniciar-juego" type="button" class="btn btn-primary">Iniciar</button>
         </div>
       </div>
     </div>
-    <div class="container mt-2" id="tablero">
-      <div class="row">
-        <div class="col-sm">
-          <div id="cuadro-1" class="cuadro">A</div>
-        </div>
-        <div class="col-sm">
-          <div id="cuadro-2" class="cuadro">B</div>
-        </div>
+    <div id="tablero">
+      <button id="rojo" class="botones border border-dark border-2 rounded m-2"></button>
+      <button id="verde" class="botones border border-dark border-2 rounded m-2"></button>
+      <br />
+      <button id="azul" class="botones border border-dark border-2 rounded m-2"></button>
+      <button id="amarillo" class="botones border border-dark border-2 rounded m-2"></button>
+
       </div>
-      <div class="row">
-        <div class="col-sm">
-          <div id="cuadro-3" class="cuadro">C</div>
-        </div>
-        <div class="col-sm">
-          <div id="cuadro-4" class="cuadro">D</div>
-        </div>
       </div>
-    </div>    
     <script type="text/javascript" src="/js/main.js"></script>
   </body>
 </html>
+
+<!--           <button id="rojo" class="botones border border-dark border-2 rounded m-2"></button>
+-->
