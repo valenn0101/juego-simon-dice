@@ -5,7 +5,10 @@ const botonRojo = document.getElementById("rojo");
 const botonVerde = document.getElementById("verde");
 const botonAzul = document.getElementById("azul");
 const botonAmarillo = document.getElementById("amarillo");
+const tableroDeJuego = document.getElementById("tablero");
 const tablero = [botonRojo, botonVerde, botonAzul, botonAmarillo];
+const nivelDeJuego = document.getElementById("dificultad-juego");
+console.log(nivelDeJuego.value);
 let patronMaquina = [];
 let patronUsuario = [];
 
@@ -22,6 +25,7 @@ function comenzarJuego() {
 
 function nuevoNivel() {
   $estado.innerText = "Turno de la maquina!";
+  tableroDeJuego.classList.add("turno-maquina");
   setTimeout(() => {
     nivel = nivel + 1;
     $ronda.innerText = nivel;
@@ -31,6 +35,9 @@ function nuevoNivel() {
     señalarColor(siguienteColor);
     patronMaquina.push(siguienteColor);
     $estado.innerText = "Tu turno!";
+   setTimeout(()=>{
+    tableroDeJuego.classList.remove("turno-maquina");
+   },500); 
   }, 1000);
 }
 

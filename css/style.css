@@ -17,6 +17,14 @@ button.señalar{
   box-shadow: 0px 0px 20px purple;
 
 }
+.turno-maquina{
+  opacity: 30%;
+}
+
+.dificultad{
+  padding-left: 300px;
+  padding-right: 300px;
+}
 
 #rojo{
   background: #FF6B6B;
