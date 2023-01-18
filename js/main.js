@@ -7,8 +7,10 @@ const botonAzul = document.getElementById("azul");
 const botonAmarillo = document.getElementById("amarillo");
 const tableroDeJuego = document.getElementById("tablero");
 const tablero = [botonRojo, botonVerde, botonAzul, botonAmarillo];
-const infoDificultad = document.querySelectorAll(".infoDificultad");
+const infoDificultad = document.getElementById("infoDificultad");
 const mensajeFlotante = document.getElementById("mensajeFlotante");
+const botonFacil = document.getElementById("dificultad-facil");
+const botonDificil = document.getElementById("dificultad-dificil");
 let patronMaquina = [];
 let patronUsuario = [];
 
@@ -32,6 +34,22 @@ function comenzarJuego() {
   document.getElementById("iniciar-juego").disabled = true;
 }
 
+let mostrarPatron;
+
+function controlarDificultad(botonSeleccionado) {
+  if (botonSeleccionado === botonFacil) {
+    botonDificil.disabled = true;
+    mostrarPatron = true;
+  } else if (botonSeleccionado === botonDificil) {
+    document.getElementById("tablero-de-historial").classList.add("ocultar")
+    botonFacil.disabled = true;
+    mostrarPatron = false;
+  }
+}
+
+botonFacil.addEventListener("click", (e) => controlarDificultad(e.target));
+botonDificil.addEventListener("click", (e) => controlarDificultad(e.target));
+
 function nuevoNivel() {
   $estado.innerText = "Turno de la maquina!";
   botonRojo.classList.add("turno-maquina");
@@ -40,7 +58,7 @@ function nuevoNivel() {
   botonAmarillo.classList.add("turno-maquina");
 
   setTimeout(() => {
-    if(nivelDeJuego == 1){
+    if (mostrarPatron === true) {
       imprimirPatronMaquina(patronMaquina);
     }
     nivel = nivel + 1;
@@ -92,7 +110,7 @@ function presionarBoton(event) {
 function imprimirPatronMaquina(patronMaquina) {
   const historialDeColores = document.getElementById("historial");
   historialDeColores.innerText = "";
-  patronMaquina.forEach( color => {
+  patronMaquina.forEach((color) => {
     const $patron = document.createElement("li");
     $patron.innerText = color.value;
     historialDeColores.appendChild($patron);

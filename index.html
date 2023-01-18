@@ -30,8 +30,8 @@
       </div>
       <div class="m-2 dificultad">
         <label for="customRange3" class="form-label rounded border border-warning border-3 bg-warning text-dark" id="infoDificultad">Dificultad</label>
-        <button type="button" class="btn btn-primary infoDificultad">Facil</button>
-        <button type="button" class="btn btn-primary infoDificultad">Medio</button>        
+        <button type="button" class="btn btn-primary" id="dificultad-facil">Facil</button>
+        <button type="button" class="btn btn-primary" id="dificultad-dificil">Dificil</button>        
         <p id="mensajeFlotante" style="display:none;">Dificultad 1: Te muestra la secuencia <br> Dificultad 2: Mucha suerte!</p>
       </div>
     </div>
@@ -43,7 +43,7 @@
     <button id="azul" class="botones border border-dark border-2 rounded m-2" value="Azul"></button>
     <button id="amarillo" class="botones border border-dark border-2 rounded m-2" value="Amarillo"></button>
   </div>
-  <div class="card m-3" style="width: 18rem;">
+  <div id="tablero-de-historial" class="card m-3" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Historial de colores</h5>
       <p class="card-text" id="historial">Aqui podras recordar los colores de la maquina</p>
