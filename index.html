@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,10 +7,8 @@
   <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <title>Simon Dice Juego</title>
 </head>
-
 <body>
   <nav class="navbar navbar-light border border-2 border-secondary p-3 mb-2 bg-white text-dark" id="barra-navegacion">
     <div class="container-fluid d-flex justify-content-center">
@@ -32,22 +29,26 @@
         <button id="iniciar-juego" type="button" class="btn btn-primary">Iniciar</button>
       </div>
       <div class="m-2 dificultad">
-        <label for="customRange3" class="form-label">Dificultad</label>
-        <input id="dificultad-juego" type="range" class="form-range" min="1" max="3" step="1" id="customRange3">
+        <label for="customRange3" class="form-label rounded border border-warning border-3 bg-warning text-dark" id="infoDificultad">Dificultad</label>
+        <button type="button" class="btn btn-primary infoDificultad">Facil</button>
+        <button type="button" class="btn btn-primary infoDificultad">Medio</button>        
+        <p id="mensajeFlotante" style="display:none;">Dificultad 1: Te muestra la secuencia <br> Dificultad 2: Mucha suerte!</p>
       </div>
     </div>
   </div>
   <div id="tablero" class="">
-    <button id="rojo" class="botones border border-dark border-2 rounded m-2"></button>
-    <button id="verde" class="botones border border-dark border-2 rounded m-2"></button>
+    <button id="rojo" class="botones border border-dark border-2 rounded m-2" value="Rojo"></button>
+    <button id="verde" class="botones border border-dark border-2 rounded m-2" value="Verde"></button>
     <br />
-    <button id="azul" class="botones border border-dark border-2 rounded m-2"></button>
-    <button id="amarillo" class="botones border border-dark border-2 rounded m-2"></button>
-
+    <button id="azul" class="botones border border-dark border-2 rounded m-2" value="Azul"></button>
+    <button id="amarillo" class="botones border border-dark border-2 rounded m-2" value="Amarillo"></button>
   </div>
+  <div class="card m-3" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Historial de colores</h5>
+      <p class="card-text" id="historial">Aqui podras recordar los colores de la maquina</p>
+    </div>
   </div>
   <script type="text/javascript" src="js/main.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
-
 </html>
