@@ -1,21 +1,19 @@
 let $estado = document.getElementById("estado");
 let nivel = 0;
-const $ronda = document.getElementById("ronda");
 const botonRojo = document.getElementById("rojo");
 const botonVerde = document.getElementById("verde");
 const botonAzul = document.getElementById("azul");
 const botonAmarillo = document.getElementById("amarillo");
-const tableroDeJuego = document.getElementById("tablero");
-const tablero = [botonRojo, botonVerde, botonAzul, botonAmarillo];
 const infoDificultad = document.getElementById("infoDificultad");
 const mensajeFlotante = document.getElementById("mensajeFlotante");
 const botonFacil = document.getElementById("dificultad-facil");
 const botonDificil = document.getElementById("dificultad-dificil");
-const botonIniciar = document.getElementById("iniciar-juego" )
 let patronMaquina = [];
 let patronUsuario = [];
 
-document.getElementById("iniciar-juego").addEventListener("click", comenzarJuego);
+document
+  .getElementById("iniciar-juego")
+  .addEventListener("click", comenzarJuego);
 botonRojo.addEventListener("click", presionarBoton);
 botonVerde.addEventListener("click", presionarBoton);
 botonAzul.addEventListener("click", presionarBoton);
@@ -33,23 +31,20 @@ function comenzarJuego() {
   document.getElementById("iniciar-juego").disabled = true;
 }
 
-function controlarDificultad(botonSeleccionado) {
-  const botonIniciar = document.getElementById("iniciar-juego" )
-  if (botonSeleccionado === botonFacil) {
-    botonDificil.disabled = true;
-    mostrarPatron = true;
-    botonIniciar.disabled = false;
-  } else if (botonSeleccionado === botonDificil) {
-    document.getElementById("tablero-de-historial").classList.add("ocultar")
-    botonFacil.disabled = true;
-    mostrarPatron = false;
-    botonIniciar.disabled = false;
+function marcarDificultad(botonSeleccionado) {
+  const botonIniciar = document.getElementById("iniciar-juego");
+  botonDificil.disabled = botonSeleccionado === botonFacil;
+  mostrarPatron = botonSeleccionado === botonFacil;
+  botonIniciar.disabled = !(botonSeleccionado === botonFacil || botonSeleccionado === botonDificil);
+  botonFacil.disabled = botonSeleccionado === botonDificil;
+  if(botonSeleccionado === botonDificil){
+    document.getElementById("tablero-de-historial").classList.add("ocultar");
   }
 }
 
 let mostrarPatron = "";
-botonFacil.addEventListener("click", (e) => controlarDificultad(e.target));
-botonDificil.addEventListener("click", (e) => controlarDificultad(e.target));
+botonFacil.addEventListener("click", (e) => marcarDificultad(e.target));
+botonDificil.addEventListener("click", (e) => marcarDificultad(e.target));
 
 function nuevoNivel() {
   $estado.innerText = "Turno de la maquina!";
@@ -57,6 +52,8 @@ function nuevoNivel() {
   botonVerde.classList.add("turno-maquina");
   botonAzul.classList.add("turno-maquina");
   botonAmarillo.classList.add("turno-maquina");
+  const $ronda = document.getElementById("ronda");
+  const tablero = [botonRojo, botonVerde, botonAzul, botonAmarillo];
 
   setTimeout(() => {
     if (mostrarPatron === true) {
@@ -87,6 +84,7 @@ function señalarColor(tablero) {
 }
 
 function presionarBoton(event) {
+  const tableroDeJuego = document.getElementById("tablero");
   if ($estado.innerText === "Tu turno!") {
     let boton = event.target;
     señalarColor(boton);
